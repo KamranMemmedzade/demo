@@ -8,3 +8,23 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: swagger
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring-demo
+    username: kamran
+    password: 555555
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: none
+        show_sql: true
+        default_schema: myuser
+  liquibase:
+    enabled: true
+    database-change-log-table: EMPLOYEES_CHANGELOG
+    database-change-log-lock-table: EMPLOYEES_CHANGELOG_LOCK
+    change-log: classpath:/changelog/changelog-master.yml
+    default-schema: myuser

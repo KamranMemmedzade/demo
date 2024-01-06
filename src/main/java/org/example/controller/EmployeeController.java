@@ -1,31 +1,23 @@
 package org.example.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.example.model.Employee;
+import org.example.service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Tag(name = "Employee controller", description = "Employee management APIs")
+@RequiredArgsConstructor
 @RestController
 public class EmployeeController {
 
+  private final EmployeeService employeeService;
 
   @GetMapping("/employee")
   public List<Employee> getAllEmployees() {
-    var employeeList = new ArrayList<Employee>();
-    employeeList.add(Employee.builder()
-        .name("John")
-        .salary(BigDecimal.valueOf(1000))
-        .build());
-
-    employeeList.add(Employee.builder()
-        .name("Alex")
-        .salary(BigDecimal.valueOf(1172))
-        .build());
-    return employeeList;
+    return employeeService.getAllEmployees();
   }
 
 

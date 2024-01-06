@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-employee
+      author: Kamran Mammadzade
+      changes:
+        - createTable:
+            tableName: employees
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+              - column:
+                  name: surname
+                  type: VARCHAR(100)
+              - column:
+                  name: salary
+                  type: NUMERIC
+              - column:
+                  name: insert_date
+                  type: TIMESTAMP
+              - column:
+                  name: modify_date
+                  type: TIMESTAMP
+      schemaName: spring-demo
+      tableName: employees
+      remarks: A test to create table
+

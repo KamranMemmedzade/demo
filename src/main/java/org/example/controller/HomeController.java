@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
   @GetMapping("/home")
-  public String openHome(){
+  public String openHome() {
     return "This is home controller response";
   }
 
